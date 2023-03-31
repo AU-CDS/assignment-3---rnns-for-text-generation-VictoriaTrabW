@@ -113,4 +113,5 @@ corpus = [clean_text(x) for x in all_comments]
 
 
 
+
 #saving the model in out folder
