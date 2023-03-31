@@ -37,3 +37,6 @@ One big thing to be aware of - unlike the classroom notebook, this assignment is
     - E.g where does the data come from?
     - How do I run the code?
 - Make sure to include a requirements file, etc...
+
+Comments by author
+Data comes from shared data folder '431868'. Setup can be done via setup.sh file.
