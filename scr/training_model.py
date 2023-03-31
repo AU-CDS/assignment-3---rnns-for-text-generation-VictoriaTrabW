@@ -99,10 +99,11 @@ for filename in os.listdir(data_dir):
         comments_df = pd.read_csv(data_dir + "/" + filename)
         all_comments.extend(list(comments_df["commentBody"].values))
 
-#clean up the data
+#cleaning up the data
 all_comments = [h for h in all_comments if h != "Unknown"]
 corpus = [clean_text(x) for x in all_comments]
 
+#tokenizing the data
 
 
 
