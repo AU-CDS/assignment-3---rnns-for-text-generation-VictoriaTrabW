@@ -22,9 +22,12 @@ warnings.simplefilter(action='ignore', category=FutureWarning)
 
 #i am using some of the helper functions from session 8 to clean and prep the data
 def clean_text(txt):
-    txt = "".join(v for v in txt if v not in string.punctuation).lower()
-    txt = txt.encode("utf8").decode("ascii",'ignore')
-    return txt 
+    if isinstance(txt, str):
+        txt = "".join(v for v in txt if v not in string.punctuation).lower()
+        txt = txt.encode("utf8").decode("ascii",'ignore')
+        return txt 
+    else:
+        return ""
 
 def get_sequence_of_tokens(tokenizer, corpus):
     ## convert data to sequence of tokens 
@@ -104,6 +107,29 @@ all_comments = [h for h in all_comments if h != "Unknown"]
 corpus = [clean_text(x) for x in all_comments]
 
 #tokenizing the data
+tokenizer = Tokenizer()
+tokenizer.fit_on_texts(corpus)
+total_words = len(tokenizer.word_index) + 1
+
+inp_sequences = get_sequence_of_tokens(tokenizer, corpus)
+inp_sequences[:10]
+
+#padding input sequences
+predictors, label, max_sequence_len = generate_padded_sequences(inp_sequences)
+
+#creating model
+model = create_model(max_sequence_len, total_words)
+
+history = model.fit(predictors, 
+                    label, 
+                    epochs=100,
+                    batch_size=128, 
+                    verbose=1)
+
+
+
+
+
 
 
 
