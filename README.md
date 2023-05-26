@@ -38,6 +38,6 @@ One big thing to be aware of - unlike the classroom notebook, this assignment is
     - How do I run the code?
 - Make sure to include a requirements file, etc...
 
-Comments from author
+## Comments from author
 Data comes from shared data folder '431868' called news_data. However, due to problems with the code being KILLED when run, the assignment has been made with only a subset of the data. In theory, the code should still work on the entire dataset if the capacity is there.
 

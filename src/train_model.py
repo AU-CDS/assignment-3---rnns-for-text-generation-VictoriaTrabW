@@ -124,12 +124,13 @@ model = create_model(max_sequence_len, total_words)
 
 history = model.fit(predictors, 
                     label, 
-                    epochs=10,
+                    epochs=30,
                     batch_size=128, 
                     verbose=1)
 
 
+# saving the model in "out" folder
+out_dir = "assignment3-rnns-for-text-generation-VictoriaTrabW/out"
 
-
-# tf.keras.saving.save_model
-#saving the model in out folder
+save_path = os.path.join(out_dir, "trained_model")
+tf.keras.saving.save_model(model, save_path)
