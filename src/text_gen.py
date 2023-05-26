@@ -16,5 +16,5 @@ def generate_text_from_input(loaded_model, max_sequence_len, tokenizer):
             break
         
         # Generate text based on the user input
-        generated_text = generate_text(prompt, 10, model, max_sequence_len, tokenizer)
+        generated_text = generate_text(prompt, 7, model, max_sequence_len, tokenizer)
         print("Generated text:", generated_text)
