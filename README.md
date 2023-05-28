@@ -39,7 +39,7 @@ One big thing to be aware of - unlike the classroom notebook, this assignment is
 - Make sure to include a requirements file, etc...
 
 ## Repository structure
-- This repository does not contain an "in" folder, as the data comes from our shared resources.
+- This repository does not contain an "in" folder, as the data comes from our shared resources, and the data should not be pushed back into Github due to its size.
 
 - **out** folder: Contains the outputs generated during the execution of the scripts. This includes a trained model.
 
