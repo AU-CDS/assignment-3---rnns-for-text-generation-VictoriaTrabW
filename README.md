@@ -38,6 +38,24 @@ One big thing to be aware of - unlike the classroom notebook, this assignment is
     - How do I run the code?
 - Make sure to include a requirements file, etc...
 
-## Comments from author
-Data comes from shared data folder '431868' called news_data. However, due to problems with the code being KILLED when run, the assignment has been made with only a subset of the data. In theory, the code should still work on the entire dataset if the capacity is there.
+## Repository structure
+- This repository does not contain an "in" folder, as the data comes from our shared resources.
+
+- **out** folder: Contains the outputs generated during the execution of the scripts. This includes a trained model.
+
+- **src** folder: Contains the main scripts to solve the assignment. This includes scripts for training the model, loading a saved model, and generating text.
+
+- Setup and reproducibility files:
+  - **setup.sh** file: A script created in an attempt to set up virtual environments (`venv`). However, if it doesn't work, you can use the following command in the terminal to install the required dependencies: `pip install -r requirements.txt`.
+  - **requirements.txt** file: Lists the required programs and packages to run the code. You can use it to install the necessary dependencies.
+
+- **README.md** file: Contains the assignment details, dependencies, additional notes, and reflections on the output. It provides clear and easy-to-understand documentation for the project.
+
+## Dependencies
+The data comes from our shared data folder in language analytics (called 431868 in my assignment). The files are in a folder called news_data and consist of .csv data about article names and comments from several months in 2017-2018.
+
+The project has been run through UCloud in the Coder Python app (1.78.2), and the neccesary programs are listed in requirements.txt.
+
+## Reflections and methods
+Due to problems with the code being KILLED when run, the assignment has been made with only a subset of the data. In theory, the code should still work on the entire dataset if the capacity is there.
 

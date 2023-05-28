@@ -97,10 +97,10 @@ data_dir = os.path.join("431868/news_data")
 
 # Loading a subset of the data and appending the comments section data to a list
 all_comments = []
-filename = "CommentsJan2018.csv"  # Specify the filename of the CSV file
+filename = "CommentsJan2018.csv"  # Specifying the filename of the CSV file
 
 comments_df = pd.read_csv(os.path.join(data_dir, filename))
-comments_subset = comments_df["commentBody"].values[:1000]  # Extract the first 1000 comments
+comments_subset = comments_df["commentBody"].values[:1000]  # Extracting the first 1000 comments
 
 all_comments.extend(list(comments_subset))
 
@@ -124,7 +124,7 @@ model = create_model(max_sequence_len, total_words)
 
 history = model.fit(predictors, 
                     label, 
-                    epochs=30,
+                    epochs=10,
                     batch_size=128, 
                     verbose=1)
 
