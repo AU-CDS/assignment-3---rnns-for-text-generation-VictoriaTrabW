@@ -124,7 +124,7 @@ model = create_model(max_sequence_len, total_words)
 history = model.fit(predictors, 
                     label, 
                     epochs=2,
-                    batch_size=128, 
+                    batch_size=100, 
                     verbose=1)
 
 
