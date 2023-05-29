@@ -39,7 +39,7 @@ def get_sequence_of_tokens(tokenizer, corpus):
             input_sequences.append(n_gram_sequence)
     return input_sequences
 
-def generate_padded_sequences(input_sequences):
+def generate_padded_sequences(input_sequences, total_words):
     # get the length of the longest sequence
     max_sequence_len = max([len(x) for x in input_sequences])
     # make every sequence the length of the longest on
@@ -92,44 +92,42 @@ def generate_text(seed_text, next_words, model, max_sequence_len):
     return seed_text.title()
 
 
-#load data
+# defining the path and loading a subset of the data
 data_dir = os.path.join("431868/news_data")
+filename = "CommentsJan2018.csv"
 
-# Loading a subset of the data and appending the comments section data to a list
-all_comments = []
-filename = "CommentsJan2018.csv"  # Specifying the filename of the CSV file
-
-comments_df = pd.read_csv(os.path.join(data_dir, filename), quotechar = '"')
+# Loading 1000 comments from one of the files in the dataset
+comments_df = pd.read_csv(data_dir + "/" + filename)
 comments_subset = comments_df["commentBody"].values[:1000]  # Extracting the first 1000 comments
-
-all_comments.extend(list(comments_subset))
 
 #cleaning up the data
 comments_subset = [comment for comment in comments_subset if comment != "Unknown"]
+# creating corpus
 corpus = [clean_text(comment) for comment in comments_subset]
+print(corpus[:10])
 
 #tokenizing the data
 tokenizer = Tokenizer()
 tokenizer.fit_on_texts(corpus)
 total_words = len(tokenizer.word_index) + 1
 
+# turning comment input into numericals
 inp_sequences = get_sequence_of_tokens(tokenizer, corpus)
 
 #padding input sequences
-predictors, label, max_sequence_len = generate_padded_sequences(inp_sequences)
+predictors, label, max_sequence_len = generate_padded_sequences(inp_sequences, total_words)
 
 #creating model
 model = create_model(max_sequence_len, total_words)
-
 history = model.fit(predictors, 
                     label, 
-                    epochs=2,
-                    batch_size=100, 
+                    epochs=1,
+                    batch_size=128, 
                     verbose=1)
 
 
 # saving the model in "out" folder
-out_dir = "assignment3-rnns-for-text-generation-VictoriaTrabW/out"
+out_dir = "assignment-3---rnns-for-text-generation-VictoriaTrabW/out"
 
 save_path = os.path.join(out_dir, "trained_model")
 tf.keras.saving.save_model(model, save_path)
