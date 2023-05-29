@@ -3,18 +3,30 @@
 import os
 import tensorflow as tf
 
-#loading the model which was trained in the train_model.py script
-model_path = "assignment3-rnns-for-text-generation-VictoriaTrabW/out/trained_model"
+# Loading the model which was trained in the train_model.py script
+model_path = "assignment-3---rnns-for-text-generation-VictoriaTrabW/out/trained_model"
 loaded_model = tf.keras.models.load_model(model_path)
 
-# Function to generate text from user input
-def generate_text_from_input(loaded_model, max_sequence_len, tokenizer):
-    while True:
-        # Prompt user for input
-        prompt = input("Enter a prompt (or 'q' to quit): ")
-        if prompt.lower() == 'q':
-            break
+# Loading the tokenizer from JSON
+tokenizer_path = "assignment-3---rnns-for-text-generation-VictoriaTrabW/out/tokenizer.json"
+with open(tokenizer_path, "r") as json_file:
+    tokenizer_json = json_file.read()
+tokenizer = tf.keras.preprocessing.text.tokenizer_from_json(tokenizer_json)
+
+
+def generate_text(seed_text, next_words, model, max_sequence_len):
+    for _ in range(next_words):
+        token_list = tokenizer.texts_to_sequences([seed_text])[0]
+        token_list = pad_sequences([token_list], 
+                                    maxlen=max_sequence_len-1, 
+                                    padding='pre')
+        predicted = np.argmax(model.predict(token_list),
+                                            axis=1)
         
-        # Generate text based on the user input
-        generated_text = generate_text(prompt, 7, model, max_sequence_len, tokenizer)
-        print("Generated text:", generated_text)
+        output_word = ""
+        for word,index in tokenizer.word_index.items():
+            if index == predicted:
+                output_word = word
+                break
+        seed_text += " "+output_word
+    return seed_text.title()

@@ -74,24 +74,6 @@ def create_model(max_sequence_len, total_words):
     
     return model
 
-def generate_text(seed_text, next_words, model, max_sequence_len):
-    for _ in range(next_words):
-        token_list = tokenizer.texts_to_sequences([seed_text])[0]
-        token_list = pad_sequences([token_list], 
-                                    maxlen=max_sequence_len-1, 
-                                    padding='pre')
-        predicted = np.argmax(model.predict(token_list),
-                                            axis=1)
-        
-        output_word = ""
-        for word,index in tokenizer.word_index.items():
-            if index == predicted:
-                output_word = word
-                break
-        seed_text += " "+output_word
-    return seed_text.title()
-
-
 # defining the path and loading a subset of the data
 data_dir = os.path.join("431868/news_data")
 filename = "CommentsJan2018.csv"
@@ -104,7 +86,6 @@ comments_subset = comments_df["commentBody"].values[:1000]  # Extracting the fir
 comments_subset = [comment for comment in comments_subset if comment != "Unknown"]
 # creating corpus
 corpus = [clean_text(comment) for comment in comments_subset]
-print(corpus[:10])
 
 #tokenizing the data
 tokenizer = Tokenizer()
@@ -131,3 +112,10 @@ out_dir = "assignment-3---rnns-for-text-generation-VictoriaTrabW/out"
 
 save_path = os.path.join(out_dir, "trained_model")
 tf.keras.saving.save_model(model, save_path)
+
+#saving the tokenizer as json for later use in the generate_text function in the text_gen.py script
+tokenizer_path = os.path.join(out_dir, "tokenizer.json")
+tokenizer_json = tokenizer.to_json()
+with open(tokenizer_path, "w") as json_file:
+    json_file.write(tokenizer_json)
+

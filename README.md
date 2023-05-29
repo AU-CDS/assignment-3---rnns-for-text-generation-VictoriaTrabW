@@ -41,7 +41,7 @@ One big thing to be aware of - unlike the classroom notebook, this assignment is
 ## Repository structure
 - This repository does not contain an "in" folder, as the data comes from our shared resources, and the data should not be pushed back into Github due to its size.
 
-- **out** folder: Contains the outputs generated during the execution of the scripts. This includes a trained model.
+- **out** folder: Contains the outputs generated during the execution of the scripts. This includes a trained model and a tokenizer.
 
 - **src** folder: Contains the main scripts to solve the assignment. This includes scripts for training the model, loading a saved model, and generating text.
 
