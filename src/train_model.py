@@ -1,4 +1,4 @@
-#a model trained on the comments section of the data
+#a model trained on a subset of the comments section of the data
 
 # data processing tools
 import string, os 
