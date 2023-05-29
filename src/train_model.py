@@ -121,7 +121,7 @@ predictors, label, max_sequence_len = generate_padded_sequences(inp_sequences, t
 model = create_model(max_sequence_len, total_words)
 history = model.fit(predictors, 
                     label, 
-                    epochs=1,
+                    epochs=30,
                     batch_size=128, 
                     verbose=1)
 
