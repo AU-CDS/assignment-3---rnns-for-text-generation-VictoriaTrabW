@@ -102,10 +102,9 @@ predictors, label, max_sequence_len = generate_padded_sequences(inp_sequences, t
 model = create_model(max_sequence_len, total_words)
 history = model.fit(predictors, 
                     label, 
-                    epochs=30,
+                    epochs=50,
                     batch_size=128, 
                     verbose=1)
-
 
 # saving the model in "out" folder
 out_dir = "assignment-3---rnns-for-text-generation-VictoriaTrabW/out"
