@@ -118,4 +118,3 @@ tokenizer_path = os.path.join(out_dir, "tokenizer.json")
 tokenizer_json = tokenizer.to_json()
 with open(tokenizer_path, "w") as json_file:
     json_file.write(tokenizer_json)
-
