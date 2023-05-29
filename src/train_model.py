@@ -105,8 +105,8 @@ comments_subset = comments_df["commentBody"].values[:1000]  # Extracting the fir
 all_comments.extend(list(comments_subset))
 
 #cleaning up the data
-all_comments = [h for h in all_comments if h != "Unknown"]
-corpus = [clean_text(x) for x in all_comments]
+comments_subset = [comment for comment in comments_subset if comment != "Unknown"]
+corpus = [clean_text(comment) for comment in comments_subset]
 
 #tokenizing the data
 tokenizer = Tokenizer()
@@ -114,7 +114,6 @@ tokenizer.fit_on_texts(corpus)
 total_words = len(tokenizer.word_index) + 1
 
 inp_sequences = get_sequence_of_tokens(tokenizer, corpus)
-inp_sequences[:10]
 
 #padding input sequences
 predictors, label, max_sequence_len = generate_padded_sequences(inp_sequences)
