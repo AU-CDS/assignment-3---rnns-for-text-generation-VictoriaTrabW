@@ -45,11 +45,7 @@ One big thing to be aware of - unlike the classroom notebook, this assignment is
 
 - **src** folder: Contains the main scripts to solve the assignment. This includes scripts for training the model, loading a saved model, and generating text.
 
--	Setup and reproducibility files:
-o	Requirements.txt file: Lists the required programs and packages to run the code. 
-o	Can be installed with: pip install -r requirements.txt
-
-  - **requirements.txt** file: Lists the required programs and packages to run the code. You can use it to install the necessary dependencies.
+- **requirements.txt** file: Lists the required programs and packages to run the code. You can use it to install the necessary dependencies. Can be installed with: pip install -r requirements.txt
 
 - **README.md** file: Contains the assignment details, dependencies, additional notes, and reflections on the output. It provides clear and easy-to-understand documentation for the project.
 
