@@ -45,16 +45,18 @@ One big thing to be aware of - unlike the classroom notebook, this assignment is
 
 - **src** folder: Contains the main scripts to solve the assignment. This includes scripts for training the model, loading a saved model, and generating text.
 
-- Setup and reproducibility files:
-  - **setup.sh** file: A script created in an attempt to set up virtual environments (`venv`). However, if it doesn't work, you can use the following command in the terminal to install the required dependencies: `pip install -r requirements.txt`.
+-	Setup and reproducibility files:
+o	Requirements.txt file: Lists the required programs and packages to run the code. 
+o	Can be installed with: pip install -r requirements.txt
+
   - **requirements.txt** file: Lists the required programs and packages to run the code. You can use it to install the necessary dependencies.
 
 - **README.md** file: Contains the assignment details, dependencies, additional notes, and reflections on the output. It provides clear and easy-to-understand documentation for the project.
 
-## Dependencies
-The data comes from our shared data folder in language analytics (called 431868 in my assignment). The files are in a folder called news_data and consist of .csv data about article names and comments from several months in 2017-2018.
-
+## Dependencies and data
 The project has been run through UCloud in the Coder Python app (1.78.2), and the neccesary programs are listed in requirements.txt.
+
+The data comes from our shared data folder in language analytics (called 431868 in my assignment). The files are in a folder called news_data and consist of .csv data about article names and comments from several months in 2017-2018.
 
 ## Reflections and methods
 Due to limited computational resources (script being killed) and time constraints, I worked with a smaller subset of the data to demonstrate the proof of concept. However, the provided code can be scaled up to handle the entire dataset if sufficient computational capacity is available.
