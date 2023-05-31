@@ -52,12 +52,12 @@ One big thing to be aware of - unlike the classroom notebook, this assignment is
 ## Dependencies and data
 The project has been run through UCloud in the Coder Python app (1.78.2), and the neccesary programs are listed in requirements.txt.
 
-The data comes from our shared data folder in language analytics (called 431868 in my assignment). The files are in a folder called news_data and consist of .csv data about article names and comments from several months in 2017-2018.
+The data comes from our shared data folder in language analytics (called 431868 in my assignment). The files are in a folder called news_data and consist of .csv data about article names and comments from several months in 2017-2018. https://github.com/AU-CDS/assignment-3---rnns-for-text-generation-VictoriaTrabW.git
 
 ## Reflections and methods
 Due to limited computational resources (script being killed) and time constraints, I worked with a smaller subset of the data to demonstrate the proof of concept. However, the provided code can be scaled up to handle the entire dataset if sufficient computational capacity is available.
 
 To build the text generation model, I used a recurrent neural network (RNN) architecture, specifically the Long Short-Term Memory (LSTM) model, implemented using TensorFlow's Keras API. The steps to train the model involved data cleaning, tokenization, input sequence generation, model construction, training, and model saving.
 
-It is important to note that the model's performance in generating text depends on various factors, such as the size and complexity of the dataset, as well as the chosen hyperparameters. 
+It is important to note that the model's performance in generating text depends on various factors, such as the size and complexity of the dataset, which in my case has been limited as stated above.
 
