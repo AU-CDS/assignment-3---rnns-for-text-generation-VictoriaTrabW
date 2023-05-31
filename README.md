@@ -52,7 +52,7 @@ One big thing to be aware of - unlike the classroom notebook, this assignment is
 ## Dependencies and data
 The project has been run through UCloud in the Coder Python app (1.78.2), and the neccesary programs are listed in requirements.txt.
 
-The data comes from our shared data folder in language analytics (called 431868 in my assignment). The files are in a folder called news_data and consist of .csv data about article names and comments from several months in 2017-2018. https://github.com/AU-CDS/assignment-3---rnns-for-text-generation-VictoriaTrabW.git
+The data comes from our shared data folder in language analytics (called 431868 in my assignment). The files are in a folder called news_data and consist of .csv data about article names and comments from several months in 2017-2018. This is a link for the data https://www.kaggle.com/datasets/aashita/nyt-comments
 
 ## Reflections and methods
 Due to limited computational resources (script being killed) and time constraints, I worked with a smaller subset of the data to demonstrate the proof of concept. However, the provided code can be scaled up to handle the entire dataset if sufficient computational capacity is available.
