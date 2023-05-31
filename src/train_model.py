@@ -82,12 +82,12 @@ filename = "CommentsJan2018.csv"
 comments_df = pd.read_csv(data_dir + "/" + filename)
 comments_subset = comments_df["commentBody"].values[:1000]  # Extracting the first 1000 comments
 
-#cleaning up the data
+# cleaning up the data
 comments_subset = [comment for comment in comments_subset if comment != "Unknown"]
 # creating corpus
 corpus = [clean_text(comment) for comment in comments_subset]
 
-#tokenizing the data
+# tokenizing the data
 tokenizer = Tokenizer()
 tokenizer.fit_on_texts(corpus)
 total_words = len(tokenizer.word_index) + 1
@@ -95,10 +95,10 @@ total_words = len(tokenizer.word_index) + 1
 # turning comment input into numericals
 inp_sequences = get_sequence_of_tokens(tokenizer, corpus)
 
-#padding input sequences
+# padding input sequences
 predictors, label, max_sequence_len = generate_padded_sequences(inp_sequences, total_words)
 
-#creating model
+# creating model
 model = create_model(max_sequence_len, total_words)
 history = model.fit(predictors, 
                     label, 
